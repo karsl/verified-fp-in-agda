@@ -1,0 +1,23 @@
+app
+
+Start
+  start
+
+Syntactic
+  Term : start -> ows term ows.
+  App : term -> term ws term.
+  Parens : term -> op ows term ows cp.
+  Var : term -> var.
+
+Lexical
+  var -> ['a' - 'z']+.
+  ows => ws?.
+  ws => ('\t'|'\n'| space)+.
+  op => '('.
+  cp => ')'
+
+Vars
+  w x y z
+
+Rules
+  App(x,App(y,z)) -> App(App(x,y),z)

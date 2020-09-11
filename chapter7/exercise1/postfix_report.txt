@@ -1,0 +1,137 @@
+Beginning processing of grammar postfix.
+(Time elapsed: 0.)
+Converted grammar to AST for grammars.
+postfix
+
+Start
+
+start
+
+
+
+Syntactic
+
+Posinfo : posinfo -> .
+Postfix-0 : start-opt-1 -> '\n' .
+Postfix-1 : start-opt-1 -> .
+Postfix : start -> postfix start-opt-1 .
+Plus : postfix -> postfix ' ' postfix '+' .
+Num : postfix -> num .
+
+
+Lexical
+
+num-range-2 -> '0' .
+num-range-2 -> '1' .
+num-range-2 -> '2' .
+num-range-2 -> '3' .
+num-range-2 -> '4' .
+num-range-2 -> '5' .
+num-range-2 -> '6' .
+num-range-2 -> '7' .
+num-range-2 -> '8' .
+num-range-2 -> '9' .
+num-plus-3 -> num-range-2 .
+num-plus-3 -> num-range-2 num-plus-3 .
+num -> num-plus-3 .
+
+
+Vars
+
+ x0
+
+Rules
+
+
+
+Syntactic non-terminals (defined by syntactic productions):
+  start-opt-1 start postfix posinfo 
+
+Reading non-terminals (defined by lexical ->-productions):
+  num-range-2 num-plus-3 num 
+
+Recognizing non-terminals (defined by lexical =>-productions):
+  
+
+Terminal symbols:
+  '\n' '9' '8' '7' '6' '5' '4' '3' '2' '1' '0' '+' ' ' 
+
+
+
+(The parsing TRS for the grammar is:
+(
+Num:  num[0] -> postfix[Num(x0)]
+P0:  '0' -> num-range-2[string-append(0, char-to-string('0'))]
+P1:  '1' -> num-range-2[string-append(0, char-to-string('1'))]
+P10:  num-range-2[0] -> num-plus-3[string-append(0, x0)]
+P11:  num-range-2[0] num-plus-3[1] -> num-plus-3[string-append(1, x0, x1)]
+P12:  num-plus-3[0] -> num[string-append(0, x0)]
+P2:  '2' -> num-range-2[string-append(0, char-to-string('2'))]
+P3:  '3' -> num-range-2[string-append(0, char-to-string('3'))]
+P4:  '4' -> num-range-2[string-append(0, char-to-string('4'))]
+P5:  '5' -> num-range-2[string-append(0, char-to-string('5'))]
+P6:  '6' -> num-range-2[string-append(0, char-to-string('6'))]
+P7:  '7' -> num-range-2[string-append(0, char-to-string('7'))]
+P8:  '8' -> num-range-2[string-append(0, char-to-string('8'))]
+P9:  '9' -> num-range-2[string-append(0, char-to-string('9'))]
+Plus:  postfix[0] #' ' postfix[1] #'+' -> postfix[Plus(x0, x1)]
+Posinfo:  -> posinfo[Posinfo]
+Postfix:  postfix[0] start-opt-1[1] -> start[Postfix(x0, x1)]
+Postfix-0:  #'\n' -> start-opt-1[Postfix-0]
+Postfix-1:  -> start-opt-1[Postfix-1]
+)
+)
+(The reorganizing TRS is terminating.)
+(Derivational complexity of the reorganizing TRS: O(n^0))
+(Local confluence of the reorganizing TRS: true)
+
+(Time elapsed: 0.004)
+Found nullable (posinfo, Posinfo)
+Found nullable (start-opt-1, Postfix-1)
+)
+(The parsing TRS that arises from the final automaton:
+(
+Num:  num[0] -> postfix[Num(x0)]
+P0:  '0' -> num-range-2[string-append(0, char-to-string('0'))]
+P1:  '1' -> num-range-2[string-append(0, char-to-string('1'))]
+P10:  num-range-2[0] -> num-plus-3[string-append(0, x0)]
+P11:  num-range-2[0] num-plus-3[1] -> num-plus-3[string-append(1, x0, x1)]
+P12:  num-plus-3[0] -> num[string-append(0, x0)]
+P2:  '2' -> num-range-2[string-append(0, char-to-string('2'))]
+P3:  '3' -> num-range-2[string-append(0, char-to-string('3'))]
+P4:  '4' -> num-range-2[string-append(0, char-to-string('4'))]
+P5:  '5' -> num-range-2[string-append(0, char-to-string('5'))]
+P6:  '6' -> num-range-2[string-append(0, char-to-string('6'))]
+P7:  '7' -> num-range-2[string-append(0, char-to-string('7'))]
+P8:  '8' -> num-range-2[string-append(0, char-to-string('8'))]
+P9:  '9' -> num-range-2[string-append(0, char-to-string('9'))]
+Plus:  postfix[0] #' ' postfix[1] #'+' -> postfix[Plus(x0, x1)]
+Posinfo:  -> posinfo[Posinfo]
+Postfix:  postfix[0] start-opt-1[1] -> start[Postfix(x0, x1)]
+Postfix-0:  #'\n' -> start-opt-1[Postfix-0]
+Postfix-1:  -> start-opt-1[Postfix-1]
+)
+)
+(The TRS corresponding to the final parsing TRS:
+Num: Num . num(x0) . x1 -> postfix(Num(x0)) . x1
+P0: P0 . '0' . x1 -> num-range-2(string-append(0, char-to-string('0'))) . x1
+P1: P1 . '1' . x1 -> num-range-2(string-append(0, char-to-string('1'))) . x1
+P10: P10 . num-range-2(x0) . x1 -> num-plus-3(string-append(0, x0)) . x1
+P11: P11 . num-range-2(x0) . num-plus-3(x1) . x2 -> num-plus-3(string-append(1, x0, x1)) . x2
+P12: P12 . num-plus-3(x0) . x1 -> num(string-append(0, x0)) . x1
+P2: P2 . '2' . x1 -> num-range-2(string-append(0, char-to-string('2'))) . x1
+P3: P3 . '3' . x1 -> num-range-2(string-append(0, char-to-string('3'))) . x1
+P4: P4 . '4' . x1 -> num-range-2(string-append(0, char-to-string('4'))) . x1
+P5: P5 . '5' . x1 -> num-range-2(string-append(0, char-to-string('5'))) . x1
+P6: P6 . '6' . x1 -> num-range-2(string-append(0, char-to-string('6'))) . x1
+P7: P7 . '7' . x1 -> num-range-2(string-append(0, char-to-string('7'))) . x1
+P8: P8 . '8' . x1 -> num-range-2(string-append(0, char-to-string('8'))) . x1
+P9: P9 . '9' . x1 -> num-range-2(string-append(0, char-to-string('9'))) . x1
+Plus: postfix(x0) . ' ' . postfix(x1) . '+' . x2 -> postfix(Plus(x0, x1)) . x2
+Posinfo: Posinfo . x1 -> posinfo(Posinfo) . x1
+Postfix: Postfix . postfix(x0) . start-opt-1(x1) . Postfix_end . x2 -> start(Postfix(x0, x1)) . x2
+Postfix-0: Postfix-0 . '\n' . x1 -> start-opt-1(Postfix-0) . x1
+Postfix-1: Postfix-1 . x1 -> start-opt-1(Postfix-1) . x1
+)
+(No reorganizing critical pairs found.)
+(No parsing critical pairs found.)

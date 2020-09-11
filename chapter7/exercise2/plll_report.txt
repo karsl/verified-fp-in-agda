@@ -1,0 +1,153 @@
+Beginning processing of grammar plll.
+(Time elapsed: 0.)
+Converted grammar to AST for grammars.
+plll
+
+Start
+
+start
+
+
+
+Syntactic
+
+Posinfo : posinfo -> .
+Start-0 : start-opt-1 -> '\n' .
+Start-1 : start-opt-1 -> .
+Start : start -> listt start-opt-1 .
+Listt-0 : listt-bar-2 -> list-comma .
+Listt-1 : listt-bar-2 -> list-lit .
+Listt : listt -> listt-bar-2 .
+List-comma-0 : list-comma-star-3 -> .
+List-comma-1 : list-comma-star-3 -> ' ' list-comma-star-3 .
+List-comma-2 : list-comma-star-4 -> .
+List-comma-3 : list-comma-star-4 -> ' ' list-comma-star-4 .
+List-comma : list-comma -> '[' list-comma-star-3 list-seq list-comma-star-4 ']' .
+List-seq-0 : list-seq-star-5 -> .
+List-seq-1 : list-seq-star-5 -> ' ' list-seq-star-5 .
+List-seq-2 : list-seq-star-6 -> .
+List-seq-3 : list-seq-star-6 -> ' ' list-seq-star-6 .
+List-seq-4 : list-seq-star-7 -> .
+List-seq-5 : list-seq-star-7 -> list-seq-star-5 list-lit list-seq-star-6 ',' list-seq-star-7 .
+List-seq-6 : list-seq-star-8 -> .
+List-seq-7 : list-seq-star-8 -> ' ' list-seq-star-8 .
+List-seq : list-seq -> list-seq-star-7 list-seq-star-8 list-lit .
+List-lit : list-lit -> '[' ']' .
+
+
+
+
+Vars
+
+ x0
+
+Rules
+
+
+
+Syntactic non-terminals (defined by syntactic productions):
+  start-opt-1 start posinfo listt-bar-2 listt list-seq-star-8 list-seq-star-7 list-seq-star-6 list-seq-star-5 list-seq list-lit list-comma-star-4 list-comma-star-3 list-comma 
+
+Reading non-terminals (defined by lexical ->-productions):
+  
+
+Recognizing non-terminals (defined by lexical =>-productions):
+  
+
+Terminal symbols:
+  ']' '\n' '[' ',' ' ' 
+
+
+
+(The parsing TRS for the grammar is:
+(
+List-comma:  #'[' list-comma-star-3[0] list-seq[1] list-comma-star-4[2] #']' -> list-comma[List-comma(x0, x1, x2)]
+List-comma-0:  -> list-comma-star-3[List-comma-0]
+List-comma-1:  #' ' list-comma-star-3[0] -> list-comma-star-3[List-comma-1(x0)]
+List-comma-2:  -> list-comma-star-4[List-comma-2]
+List-comma-3:  #' ' list-comma-star-4[0] -> list-comma-star-4[List-comma-3(x0)]
+List-lit:  #'[' #']' -> list-lit[List-lit]
+List-seq:  list-seq-star-7[0] list-seq-star-8[1] list-lit[2] -> list-seq[List-seq(x0, x1, x2)]
+List-seq-0:  -> list-seq-star-5[List-seq-0]
+List-seq-1:  #' ' list-seq-star-5[0] -> list-seq-star-5[List-seq-1(x0)]
+List-seq-2:  -> list-seq-star-6[List-seq-2]
+List-seq-3:  #' ' list-seq-star-6[0] -> list-seq-star-6[List-seq-3(x0)]
+List-seq-4:  -> list-seq-star-7[List-seq-4]
+List-seq-5:  list-seq-star-5[0] list-lit[1] list-seq-star-6[2] #',' list-seq-star-7[3] -> list-seq-star-7[List-seq-5(x0, x1, x2, x3)]
+List-seq-6:  -> list-seq-star-8[List-seq-6]
+List-seq-7:  #' ' list-seq-star-8[0] -> list-seq-star-8[List-seq-7(x0)]
+Listt:  listt-bar-2[0] -> listt[Listt(x0)]
+Listt-0:  list-comma[0] -> listt-bar-2[Listt-0(x0)]
+Listt-1:  list-lit[0] -> listt-bar-2[Listt-1(x0)]
+Posinfo:  -> posinfo[Posinfo]
+Start:  listt[0] start-opt-1[1] -> start[Start(x0, x1)]
+Start-0:  #'\n' -> start-opt-1[Start-0]
+Start-1:  -> start-opt-1[Start-1]
+)
+)
+(The reorganizing TRS is terminating.)
+(Derivational complexity of the reorganizing TRS: O(n^0))
+(Local confluence of the reorganizing TRS: true)
+
+(Time elapsed: 0.002)
+Found nullable (list-comma-star-3, List-comma-0)
+Found nullable (list-comma-star-4, List-comma-2)
+Found nullable (list-seq-star-5, List-seq-0)
+Found nullable (list-seq-star-6, List-seq-2)
+Found nullable (list-seq-star-7, List-seq-4)
+Found nullable (list-seq-star-8, List-seq-6)
+Found nullable (posinfo, Posinfo)
+Found nullable (start-opt-1, Start-1)
+)
+(The parsing TRS that arises from the final automaton:
+(
+List-comma:  #'[' list-comma-star-3[0] list-seq[1] list-comma-star-4[2] #']' -> list-comma[List-comma(x0, x1, x2)]
+List-comma-0:  -> list-comma-star-3[List-comma-0]
+List-comma-1:  #' ' list-comma-star-3[0] -> list-comma-star-3[List-comma-1(x0)]
+List-comma-2:  -> list-comma-star-4[List-comma-2]
+List-comma-3:  #' ' list-comma-star-4[0] -> list-comma-star-4[List-comma-3(x0)]
+List-lit:  #'[' #']' -> list-lit[List-lit]
+List-seq:  list-seq-star-7[0] list-seq-star-8[1] list-lit[2] -> list-seq[List-seq(x0, x1, x2)]
+List-seq-0:  -> list-seq-star-5[List-seq-0]
+List-seq-1:  #' ' list-seq-star-5[0] -> list-seq-star-5[List-seq-1(x0)]
+List-seq-2:  -> list-seq-star-6[List-seq-2]
+List-seq-3:  #' ' list-seq-star-6[0] -> list-seq-star-6[List-seq-3(x0)]
+List-seq-4:  -> list-seq-star-7[List-seq-4]
+List-seq-5:  list-seq-star-5[0] list-lit[1] list-seq-star-6[2] #',' list-seq-star-7[3] -> list-seq-star-7[List-seq-5(x0, x1, x2, x3)]
+List-seq-6:  -> list-seq-star-8[List-seq-6]
+List-seq-7:  #' ' list-seq-star-8[0] -> list-seq-star-8[List-seq-7(x0)]
+Listt:  listt-bar-2[0] -> listt[Listt(x0)]
+Listt-0:  list-comma[0] -> listt-bar-2[Listt-0(x0)]
+Listt-1:  list-lit[0] -> listt-bar-2[Listt-1(x0)]
+Posinfo:  -> posinfo[Posinfo]
+Start:  listt[0] start-opt-1[1] -> start[Start(x0, x1)]
+Start-0:  #'\n' -> start-opt-1[Start-0]
+Start-1:  -> start-opt-1[Start-1]
+)
+)
+(The TRS corresponding to the final parsing TRS:
+List-comma: List-comma . '[' . list-comma-star-3(x0) . list-seq(x1) . list-comma-star-4(x2) . ']' . x3 -> list-comma(List-comma(x0, x1, x2)) . x3
+List-comma-0: List-comma-0 . x1 -> list-comma-star-3(List-comma-0) . x1
+List-comma-1: List-comma-1 . ' ' . list-comma-star-3(x0) . x1 -> list-comma-star-3(List-comma-1(x0)) . x1
+List-comma-2: List-comma-2 . x1 -> list-comma-star-4(List-comma-2) . x1
+List-comma-3: List-comma-3 . ' ' . list-comma-star-4(x0) . x1 -> list-comma-star-4(List-comma-3(x0)) . x1
+List-lit: List-lit . '[' . ']' . x1 -> list-lit(List-lit) . x1
+List-seq: List-seq . list-seq-star-7(x0) . list-seq-star-8(x1) . list-lit(x2) . x3 -> list-seq(List-seq(x0, x1, x2)) . x3
+List-seq-0: List-seq-0 . x1 -> list-seq-star-5(List-seq-0) . x1
+List-seq-1: List-seq-1 . ' ' . list-seq-star-5(x0) . x1 -> list-seq-star-5(List-seq-1(x0)) . x1
+List-seq-2: List-seq-2 . x1 -> list-seq-star-6(List-seq-2) . x1
+List-seq-3: List-seq-3 . ' ' . list-seq-star-6(x0) . x1 -> list-seq-star-6(List-seq-3(x0)) . x1
+List-seq-4: List-seq-4 . x1 -> list-seq-star-7(List-seq-4) . x1
+List-seq-5: List-seq-5 . list-seq-star-5(x0) . list-lit(x1) . list-seq-star-6(x2) . ',' . list-seq-star-7(x3) . x4 -> list-seq-star-7(List-seq-5(x0, x1, x2, x3)) . x4
+List-seq-6: List-seq-6 . x1 -> list-seq-star-8(List-seq-6) . x1
+List-seq-7: List-seq-7 . ' ' . list-seq-star-8(x0) . x1 -> list-seq-star-8(List-seq-7(x0)) . x1
+Listt: Listt . listt-bar-2(x0) . x1 -> listt(Listt(x0)) . x1
+Listt-0: Listt-0 . list-comma(x0) . x1 -> listt-bar-2(Listt-0(x0)) . x1
+Listt-1: Listt-1 . list-lit(x0) . x1 -> listt-bar-2(Listt-1(x0)) . x1
+Posinfo: Posinfo . x1 -> posinfo(Posinfo) . x1
+Start: Start . listt(x0) . start-opt-1(x1) . x2 -> start(Start(x0, x1)) . x2
+Start-0: Start-0 . '\n' . x1 -> start-opt-1(Start-0) . x1
+Start-1: Start-1 . x1 -> start-opt-1(Start-1) . x1
+)
+(No reorganizing critical pairs found.)
+(No parsing critical pairs found.)

@@ -1,0 +1,590 @@
+Beginning processing of grammar para.
+(Time elapsed: 0.)
+Converted grammar to AST for grammars.
+para
+
+Start
+
+start
+
+
+
+Syntactic
+
+Posinfo : posinfo -> .
+Start-0 : start-opt-1 -> nl .
+Start-1 : start-opt-1 -> .
+Start : start -> text start-opt-1 .
+Text-0 : text-bar-2 -> nl .
+Text-1 : text-bar-2 -> nl nl .
+Text-2 : text-star-3 -> .
+Text-3 : text-star-3 -> text-bar-2 paragraph text-star-3 .
+Text : text -> paragraph text-star-3 .
+Paragraph-0 : paragraph-bar-4 -> ' ' ' ' .
+Paragraph-1 : paragraph-bar-4 -> nl .
+Paragraph-2 : paragraph-bar-5 -> ' ' .
+Paragraph-3 : paragraph-bar-5 -> paragraph-bar-4 .
+Paragraph-4 : paragraph-star-6 -> .
+Paragraph-5 : paragraph-star-6 -> paragraph-bar-5 sentence paragraph-star-6 .
+Paragraph : paragraph -> sentence paragraph-star-6 .
+Sentence-0 : sentence-bar-7 -> colon .
+Sentence-1 : sentence-bar-7 -> semicolon .
+Sentence-2 : sentence-bar-8 -> comma .
+Sentence-3 : sentence-bar-8 -> sentence-bar-7 .
+Sentence-4 : sentence-opt-9 -> sentence-bar-8 .
+Sentence-5 : sentence-opt-9 -> .
+Sentence-6 : sentence-bar-10 -> ' ' .
+Sentence-7 : sentence-bar-10 -> nl .
+Sentence-8 : sentence-star-11 -> .
+Sentence-9 : sentence-star-11 -> sentence-opt-9 sentence-bar-10 word sentence-star-11 .
+Sentence-10 : sentence-bar-12 -> qmark .
+Sentence-11 : sentence-bar-12 -> dot .
+Sentence : sentence -> cword sentence-star-11 sentence-bar-12 .
+Word-0 : word-plus-13 -> letter .
+Word-1 : word-plus-13 -> letter word-plus-13 .
+Word : word -> word-plus-13 .
+CWord : cword -> cletter word .
+
+
+Lexical
+
+cletter-range-14 => 'A' .
+cletter-range-14 => 'B' .
+cletter-range-14 => 'C' .
+cletter-range-14 => 'D' .
+cletter-range-14 => 'E' .
+cletter-range-14 => 'F' .
+cletter-range-14 => 'G' .
+cletter-range-14 => 'H' .
+cletter-range-14 => 'I' .
+cletter-range-14 => 'J' .
+cletter-range-14 => 'K' .
+cletter-range-14 => 'L' .
+cletter-range-14 => 'M' .
+cletter-range-14 => 'N' .
+cletter-range-14 => 'O' .
+cletter-range-14 => 'P' .
+cletter-range-14 => 'Q' .
+cletter-range-14 => 'R' .
+cletter-range-14 => 'S' .
+cletter-range-14 => 'T' .
+cletter-range-14 => 'U' .
+cletter-range-14 => 'V' .
+cletter-range-14 => 'W' .
+cletter-range-14 => 'X' .
+cletter-range-14 => 'Y' .
+cletter-range-14 => 'Z' .
+cletter => cletter-range-14 .
+letter-range-15 => 'A' .
+letter-range-15 => 'B' .
+letter-range-15 => 'C' .
+letter-range-15 => 'D' .
+letter-range-15 => 'E' .
+letter-range-15 => 'F' .
+letter-range-15 => 'G' .
+letter-range-15 => 'H' .
+letter-range-15 => 'I' .
+letter-range-15 => 'J' .
+letter-range-15 => 'K' .
+letter-range-15 => 'L' .
+letter-range-15 => 'M' .
+letter-range-15 => 'N' .
+letter-range-15 => 'O' .
+letter-range-15 => 'P' .
+letter-range-15 => 'Q' .
+letter-range-15 => 'R' .
+letter-range-15 => 'S' .
+letter-range-15 => 'T' .
+letter-range-15 => 'U' .
+letter-range-15 => 'V' .
+letter-range-15 => 'W' .
+letter-range-15 => 'X' .
+letter-range-15 => 'Y' .
+letter-range-15 => 'Z' .
+letter-range-15 => 'a' .
+letter-range-15 => 'b' .
+letter-range-15 => 'c' .
+letter-range-15 => 'd' .
+letter-range-15 => 'e' .
+letter-range-15 => 'f' .
+letter-range-15 => 'g' .
+letter-range-15 => 'h' .
+letter-range-15 => 'i' .
+letter-range-15 => 'j' .
+letter-range-15 => 'k' .
+letter-range-15 => 'l' .
+letter-range-15 => 'm' .
+letter-range-15 => 'n' .
+letter-range-15 => 'o' .
+letter-range-15 => 'p' .
+letter-range-15 => 'q' .
+letter-range-15 => 'r' .
+letter-range-15 => 's' .
+letter-range-15 => 't' .
+letter-range-15 => 'u' .
+letter-range-15 => 'v' .
+letter-range-15 => 'w' .
+letter-range-15 => 'x' .
+letter-range-15 => 'y' .
+letter-range-15 => 'z' .
+letter => letter-range-15 .
+nl => '\n' .
+ws-bar-16 => '\n' .
+ws-bar-16 => ' ' .
+ws-bar-17 => '\t' .
+ws-bar-17 => ws-bar-16 .
+ws => ws-bar-17 .
+wss-star-18 => .
+wss-star-18 => ws wss-star-18 .
+wss => wss-star-18 .
+owss-opt-19 => wss .
+owss-opt-19 => .
+owss => owss-opt-19 .
+comma => ',' .
+colon => ':' .
+semicolon => ';' .
+qmark => '?' .
+dot => '.' .
+
+
+Vars
+
+ x0
+
+Rules
+
+
+
+Syntactic non-terminals (defined by syntactic productions):
+  word-plus-13 word text-star-3 text-bar-2 text start-opt-1 start sentence-star-11 sentence-opt-9 sentence-bar-8 sentence-bar-7 sentence-bar-12 sentence-bar-10 sentence posinfo paragraph-star-6 paragraph-bar-5 paragraph-bar-4 paragraph cword 
+
+Reading non-terminals (defined by lexical ->-productions):
+  
+
+Recognizing non-terminals (defined by lexical =>-productions):
+  wss-star-18 wss ws-bar-17 ws-bar-16 ws semicolon qmark owss-opt-19 owss nl letter-range-15 letter dot comma colon cletter-range-14 cletter 
+
+Terminal symbols:
+  'z' 'y' 'x' 'w' 'v' 'u' 't' 's' 'r' 'q' 'p' 'o' 'n' 'm' 'l' 'k' 'j' 'i' 'h' 'g' 'f' 'e' 'd' 'c' 'b' 'a' '\t' '\n' 'Z' 'Y' 'X' 'W' 'V' 'U' 'T' 'S' 'R' 'Q' 'P' 'O' 'N' 'M' 'L' 'K' 'J' 'I' 'H' 'G' 'F' 'E' 'D' 'C' 'B' 'A' '?' ';' ':' '.' ',' ' ' 
+
+
+
+(The parsing TRS for the grammar is:
+(
+CWord:  #cletter word[0] -> cword[CWord(x0)]
+P0:  #'A' -> cletter-range-14[]
+P1:  #'B' -> cletter-range-14[]
+P10:  #'K' -> cletter-range-14[]
+P11:  #'L' -> cletter-range-14[]
+P12:  #'M' -> cletter-range-14[]
+P13:  #'N' -> cletter-range-14[]
+P14:  #'O' -> cletter-range-14[]
+P15:  #'P' -> cletter-range-14[]
+P16:  #'Q' -> cletter-range-14[]
+P17:  #'R' -> cletter-range-14[]
+P18:  #'S' -> cletter-range-14[]
+P19:  #'T' -> cletter-range-14[]
+P2:  #'C' -> cletter-range-14[]
+P20:  #'U' -> cletter-range-14[]
+P21:  #'V' -> cletter-range-14[]
+P22:  #'W' -> cletter-range-14[]
+P23:  #'X' -> cletter-range-14[]
+P24:  #'Y' -> cletter-range-14[]
+P25:  #'Z' -> cletter-range-14[]
+P26:  #cletter-range-14 -> cletter[]
+P27:  #'A' -> letter-range-15[]
+P28:  #'B' -> letter-range-15[]
+P29:  #'C' -> letter-range-15[]
+P3:  #'D' -> cletter-range-14[]
+P30:  #'D' -> letter-range-15[]
+P31:  #'E' -> letter-range-15[]
+P32:  #'F' -> letter-range-15[]
+P33:  #'G' -> letter-range-15[]
+P34:  #'H' -> letter-range-15[]
+P35:  #'I' -> letter-range-15[]
+P36:  #'J' -> letter-range-15[]
+P37:  #'K' -> letter-range-15[]
+P38:  #'L' -> letter-range-15[]
+P39:  #'M' -> letter-range-15[]
+P4:  #'E' -> cletter-range-14[]
+P40:  #'N' -> letter-range-15[]
+P41:  #'O' -> letter-range-15[]
+P42:  #'P' -> letter-range-15[]
+P43:  #'Q' -> letter-range-15[]
+P44:  #'R' -> letter-range-15[]
+P45:  #'S' -> letter-range-15[]
+P46:  #'T' -> letter-range-15[]
+P47:  #'U' -> letter-range-15[]
+P48:  #'V' -> letter-range-15[]
+P49:  #'W' -> letter-range-15[]
+P5:  #'F' -> cletter-range-14[]
+P50:  #'X' -> letter-range-15[]
+P51:  #'Y' -> letter-range-15[]
+P52:  #'Z' -> letter-range-15[]
+P53:  #'a' -> letter-range-15[]
+P54:  #'b' -> letter-range-15[]
+P55:  #'c' -> letter-range-15[]
+P56:  #'d' -> letter-range-15[]
+P57:  #'e' -> letter-range-15[]
+P58:  #'f' -> letter-range-15[]
+P59:  #'g' -> letter-range-15[]
+P6:  #'G' -> cletter-range-14[]
+P60:  #'h' -> letter-range-15[]
+P61:  #'i' -> letter-range-15[]
+P62:  #'j' -> letter-range-15[]
+P63:  #'k' -> letter-range-15[]
+P64:  #'l' -> letter-range-15[]
+P65:  #'m' -> letter-range-15[]
+P66:  #'n' -> letter-range-15[]
+P67:  #'o' -> letter-range-15[]
+P68:  #'p' -> letter-range-15[]
+P69:  #'q' -> letter-range-15[]
+P7:  #'H' -> cletter-range-14[]
+P70:  #'r' -> letter-range-15[]
+P71:  #'s' -> letter-range-15[]
+P72:  #'t' -> letter-range-15[]
+P73:  #'u' -> letter-range-15[]
+P74:  #'v' -> letter-range-15[]
+P75:  #'w' -> letter-range-15[]
+P76:  #'x' -> letter-range-15[]
+P77:  #'y' -> letter-range-15[]
+P78:  #'z' -> letter-range-15[]
+P79:  #letter-range-15 -> letter[]
+P8:  #'I' -> cletter-range-14[]
+P80:  #'\n' -> nl[]
+P81:  #'\n' -> ws-bar-16[]
+P82:  #' ' -> ws-bar-16[]
+P83:  #'\t' -> ws-bar-17[]
+P84:  #ws-bar-16 -> ws-bar-17[]
+P85:  #ws-bar-17 -> ws[]
+P86:  -> wss-star-18[]
+P87:  #ws #wss-star-18 -> wss-star-18[]
+P88:  #wss-star-18 -> wss[]
+P89:  #wss -> owss-opt-19[]
+P9:  #'J' -> cletter-range-14[]
+P90:  -> owss-opt-19[]
+P91:  #owss-opt-19 -> owss[]
+P92:  #',' -> comma[]
+P93:  #':' -> colon[]
+P94:  #';' -> semicolon[]
+P95:  #'?' -> qmark[]
+P96:  #'.' -> dot[]
+Paragraph:  sentence[0] paragraph-star-6[1] -> paragraph[Paragraph(x0, x1)]
+Paragraph-0:  #' ' #' ' -> paragraph-bar-4[Paragraph-0]
+Paragraph-1:  #nl -> paragraph-bar-4[Paragraph-1]
+Paragraph-2:  #' ' -> paragraph-bar-5[Paragraph-2]
+Paragraph-3:  paragraph-bar-4[0] -> paragraph-bar-5[Paragraph-3(x0)]
+Paragraph-4:  -> paragraph-star-6[Paragraph-4]
+Paragraph-5:  paragraph-bar-5[0] sentence[1] paragraph-star-6[2] -> paragraph-star-6[Paragraph-5(x0, x1, x2)]
+Posinfo:  -> posinfo[Posinfo]
+Sentence:  cword[0] sentence-star-11[1] sentence-bar-12[2] -> sentence[Sentence(x0, x1, x2)]
+Sentence-0:  #colon -> sentence-bar-7[Sentence-0]
+Sentence-1:  #semicolon -> sentence-bar-7[Sentence-1]
+Sentence-10:  #qmark -> sentence-bar-12[Sentence-10]
+Sentence-11:  #dot -> sentence-bar-12[Sentence-11]
+Sentence-2:  #comma -> sentence-bar-8[Sentence-2]
+Sentence-3:  sentence-bar-7[0] -> sentence-bar-8[Sentence-3(x0)]
+Sentence-4:  sentence-bar-8[0] -> sentence-opt-9[Sentence-4(x0)]
+Sentence-5:  -> sentence-opt-9[Sentence-5]
+Sentence-6:  #' ' -> sentence-bar-10[Sentence-6]
+Sentence-7:  #nl -> sentence-bar-10[Sentence-7]
+Sentence-8:  -> sentence-star-11[Sentence-8]
+Sentence-9:  sentence-opt-9[0] sentence-bar-10[1] word[2] sentence-star-11[3] -> sentence-star-11[Sentence-9(x0, x1, x2, x3)]
+Start:  text[0] start-opt-1[1] -> start[Start(x0, x1)]
+Start-0:  #nl -> start-opt-1[Start-0]
+Start-1:  -> start-opt-1[Start-1]
+Text:  paragraph[0] text-star-3[1] -> text[Text(x0, x1)]
+Text-0:  #nl -> text-bar-2[Text-0]
+Text-1:  #nl #nl -> text-bar-2[Text-1]
+Text-2:  -> text-star-3[Text-2]
+Text-3:  text-bar-2[0] paragraph[1] text-star-3[2] -> text-star-3[Text-3(x0, x1, x2)]
+Word:  word-plus-13[0] -> word[Word(x0)]
+Word-0:  #letter -> word-plus-13[Word-0]
+Word-1:  #letter word-plus-13[0] -> word-plus-13[Word-1(x0)]
+)
+)
+(The reorganizing TRS is terminating.)
+(Derivational complexity of the reorganizing TRS: O(n^0))
+(Local confluence of the reorganizing TRS: true)
+
+(Time elapsed: 0.006)
+Found nullable (wss-star-18, P86)
+Found nullable (wss, P88)
+Found nullable (owss-opt-19, P89)
+Found nullable (owss-opt-19, P90)
+Found nullable (owss, P91)
+Found nullable (paragraph-star-6, Paragraph-4)
+Found nullable (posinfo, Posinfo)
+Found nullable (sentence-opt-9, Sentence-5)
+Found nullable (sentence-star-11, Sentence-8)
+Found nullable (start-opt-1, Start-1)
+Found nullable (text-star-3, Text-2)
+)
+(The parsing TRS that arises from the final automaton:
+(
+CWord:  #cletter word[0] -> cword[CWord(x0)]
+P0:  #'A' -> cletter-range-14[]
+P1:  #'B' -> cletter-range-14[]
+P10:  #'K' -> cletter-range-14[]
+P11:  #'L' -> cletter-range-14[]
+P12:  #'M' -> cletter-range-14[]
+P13:  #'N' -> cletter-range-14[]
+P14:  #'O' -> cletter-range-14[]
+P15:  #'P' -> cletter-range-14[]
+P16:  #'Q' -> cletter-range-14[]
+P17:  #'R' -> cletter-range-14[]
+P18:  #'S' -> cletter-range-14[]
+P19:  #'T' -> cletter-range-14[]
+P2:  #'C' -> cletter-range-14[]
+P20:  #'U' -> cletter-range-14[]
+P21:  #'V' -> cletter-range-14[]
+P22:  #'W' -> cletter-range-14[]
+P23:  #'X' -> cletter-range-14[]
+P24:  #'Y' -> cletter-range-14[]
+P25:  #'Z' -> cletter-range-14[]
+P26:  #cletter-range-14 -> cletter[]
+P27:  #'A' -> letter-range-15[]
+P28:  #'B' -> letter-range-15[]
+P29:  #'C' -> letter-range-15[]
+P3:  #'D' -> cletter-range-14[]
+P30:  #'D' -> letter-range-15[]
+P31:  #'E' -> letter-range-15[]
+P32:  #'F' -> letter-range-15[]
+P33:  #'G' -> letter-range-15[]
+P34:  #'H' -> letter-range-15[]
+P35:  #'I' -> letter-range-15[]
+P36:  #'J' -> letter-range-15[]
+P37:  #'K' -> letter-range-15[]
+P38:  #'L' -> letter-range-15[]
+P39:  #'M' -> letter-range-15[]
+P4:  #'E' -> cletter-range-14[]
+P40:  #'N' -> letter-range-15[]
+P41:  #'O' -> letter-range-15[]
+P42:  #'P' -> letter-range-15[]
+P43:  #'Q' -> letter-range-15[]
+P44:  #'R' -> letter-range-15[]
+P45:  #'S' -> letter-range-15[]
+P46:  #'T' -> letter-range-15[]
+P47:  #'U' -> letter-range-15[]
+P48:  #'V' -> letter-range-15[]
+P49:  #'W' -> letter-range-15[]
+P5:  #'F' -> cletter-range-14[]
+P50:  #'X' -> letter-range-15[]
+P51:  #'Y' -> letter-range-15[]
+P52:  #'Z' -> letter-range-15[]
+P53:  #'a' -> letter-range-15[]
+P54:  #'b' -> letter-range-15[]
+P55:  #'c' -> letter-range-15[]
+P56:  #'d' -> letter-range-15[]
+P57:  #'e' -> letter-range-15[]
+P58:  #'f' -> letter-range-15[]
+P59:  #'g' -> letter-range-15[]
+P6:  #'G' -> cletter-range-14[]
+P60:  #'h' -> letter-range-15[]
+P61:  #'i' -> letter-range-15[]
+P62:  #'j' -> letter-range-15[]
+P63:  #'k' -> letter-range-15[]
+P64:  #'l' -> letter-range-15[]
+P65:  #'m' -> letter-range-15[]
+P66:  #'n' -> letter-range-15[]
+P67:  #'o' -> letter-range-15[]
+P68:  #'p' -> letter-range-15[]
+P69:  #'q' -> letter-range-15[]
+P7:  #'H' -> cletter-range-14[]
+P70:  #'r' -> letter-range-15[]
+P71:  #'s' -> letter-range-15[]
+P72:  #'t' -> letter-range-15[]
+P73:  #'u' -> letter-range-15[]
+P74:  #'v' -> letter-range-15[]
+P75:  #'w' -> letter-range-15[]
+P76:  #'x' -> letter-range-15[]
+P77:  #'y' -> letter-range-15[]
+P78:  #'z' -> letter-range-15[]
+P79:  #letter-range-15 -> letter[]
+P8:  #'I' -> cletter-range-14[]
+P80:  #'\n' -> nl[]
+P81:  #'\n' -> ws-bar-16[]
+P82:  #' ' -> ws-bar-16[]
+P83:  #'\t' -> ws-bar-17[]
+P84:  #ws-bar-16 -> ws-bar-17[]
+P85:  #ws-bar-17 -> ws[]
+P86:  -> wss-star-18[]
+P87:  #ws #wss-star-18 -> wss-star-18[]
+P88:  #wss-star-18 -> wss[]
+P89:  #wss -> owss-opt-19[]
+P9:  #'J' -> cletter-range-14[]
+P90:  -> owss-opt-19[]
+P91:  #owss-opt-19 -> owss[]
+P92:  #',' -> comma[]
+P93:  #':' -> colon[]
+P94:  #';' -> semicolon[]
+P95:  #'?' -> qmark[]
+P96:  #'.' -> dot[]
+Paragraph:  sentence[0] paragraph-star-6[1] -> paragraph[Paragraph(x0, x1)]
+Paragraph-0:  #' ' #' ' -> paragraph-bar-4[Paragraph-0]
+Paragraph-1:  #nl -> paragraph-bar-4[Paragraph-1]
+Paragraph-2:  #' ' -> paragraph-bar-5[Paragraph-2]
+Paragraph-3:  paragraph-bar-4[0] -> paragraph-bar-5[Paragraph-3(x0)]
+Paragraph-4:  -> paragraph-star-6[Paragraph-4]
+Paragraph-5:  paragraph-bar-5[0] sentence[1] paragraph-star-6[2] -> paragraph-star-6[Paragraph-5(x0, x1, x2)]
+Posinfo:  -> posinfo[Posinfo]
+Sentence:  cword[0] sentence-star-11[1] sentence-bar-12[2] -> sentence[Sentence(x0, x1, x2)]
+Sentence-0:  #colon -> sentence-bar-7[Sentence-0]
+Sentence-1:  #semicolon -> sentence-bar-7[Sentence-1]
+Sentence-10:  #qmark -> sentence-bar-12[Sentence-10]
+Sentence-11:  #dot -> sentence-bar-12[Sentence-11]
+Sentence-2:  #comma -> sentence-bar-8[Sentence-2]
+Sentence-3:  sentence-bar-7[0] -> sentence-bar-8[Sentence-3(x0)]
+Sentence-4:  sentence-bar-8[0] -> sentence-opt-9[Sentence-4(x0)]
+Sentence-5:  -> sentence-opt-9[Sentence-5]
+Sentence-6:  #' ' -> sentence-bar-10[Sentence-6]
+Sentence-7:  #nl -> sentence-bar-10[Sentence-7]
+Sentence-8:  -> sentence-star-11[Sentence-8]
+Sentence-9:  sentence-opt-9[0] sentence-bar-10[1] word[2] sentence-star-11[3] -> sentence-star-11[Sentence-9(x0, x1, x2, x3)]
+Start:  text[0] start-opt-1[1] -> start[Start(x0, x1)]
+Start-0:  #nl -> start-opt-1[Start-0]
+Start-1:  -> start-opt-1[Start-1]
+Text:  paragraph[0] text-star-3[1] -> text[Text(x0, x1)]
+Text-0:  #nl -> text-bar-2[Text-0]
+Text-1:  #nl #nl -> text-bar-2[Text-1]
+Text-2:  -> text-star-3[Text-2]
+Text-3:  text-bar-2[0] paragraph[1] text-star-3[2] -> text-star-3[Text-3(x0, x1, x2)]
+Word:  word-plus-13[0] -> word[Word(x0)]
+Word-0:  #letter -> word-plus-13[Word-0]
+Word-1:  #letter word-plus-13[0] -> word-plus-13[Word-1(x0)]
+)
+)
+(The TRS corresponding to the final parsing TRS:
+CWord: CWord . cletter . word(x0) . x1 -> cword(CWord(x0)) . x1
+P0: P0 . 'A' . x1 -> cletter-range-14 . x1
+P1: P1 . 'B' . x1 -> cletter-range-14 . x1
+P10: P10 . 'K' . x1 -> cletter-range-14 . x1
+P11: P11 . 'L' . x1 -> cletter-range-14 . x1
+P12: P12 . 'M' . x1 -> cletter-range-14 . x1
+P13: P13 . 'N' . x1 -> cletter-range-14 . x1
+P14: P14 . 'O' . x1 -> cletter-range-14 . x1
+P15: P15 . 'P' . x1 -> cletter-range-14 . x1
+P16: P16 . 'Q' . x1 -> cletter-range-14 . x1
+P17: P17 . 'R' . x1 -> cletter-range-14 . x1
+P18: P18 . 'S' . x1 -> cletter-range-14 . x1
+P19: P19 . 'T' . x1 -> cletter-range-14 . x1
+P2: P2 . 'C' . x1 -> cletter-range-14 . x1
+P20: P20 . 'U' . x1 -> cletter-range-14 . x1
+P21: P21 . 'V' . x1 -> cletter-range-14 . x1
+P22: P22 . 'W' . x1 -> cletter-range-14 . x1
+P23: P23 . 'X' . x1 -> cletter-range-14 . x1
+P24: P24 . 'Y' . x1 -> cletter-range-14 . x1
+P25: P25 . 'Z' . x1 -> cletter-range-14 . x1
+P26: P26 . cletter-range-14 . x1 -> cletter . x1
+P27: P27 . 'A' . x1 -> letter-range-15 . x1
+P28: P28 . 'B' . x1 -> letter-range-15 . x1
+P29: P29 . 'C' . x1 -> letter-range-15 . x1
+P3: P3 . 'D' . x1 -> cletter-range-14 . x1
+P30: P30 . 'D' . x1 -> letter-range-15 . x1
+P31: P31 . 'E' . x1 -> letter-range-15 . x1
+P32: P32 . 'F' . x1 -> letter-range-15 . x1
+P33: P33 . 'G' . x1 -> letter-range-15 . x1
+P34: P34 . 'H' . x1 -> letter-range-15 . x1
+P35: P35 . 'I' . x1 -> letter-range-15 . x1
+P36: P36 . 'J' . x1 -> letter-range-15 . x1
+P37: P37 . 'K' . x1 -> letter-range-15 . x1
+P38: P38 . 'L' . x1 -> letter-range-15 . x1
+P39: P39 . 'M' . x1 -> letter-range-15 . x1
+P4: P4 . 'E' . x1 -> cletter-range-14 . x1
+P40: P40 . 'N' . x1 -> letter-range-15 . x1
+P41: P41 . 'O' . x1 -> letter-range-15 . x1
+P42: P42 . 'P' . x1 -> letter-range-15 . x1
+P43: P43 . 'Q' . x1 -> letter-range-15 . x1
+P44: P44 . 'R' . x1 -> letter-range-15 . x1
+P45: P45 . 'S' . x1 -> letter-range-15 . x1
+P46: P46 . 'T' . x1 -> letter-range-15 . x1
+P47: P47 . 'U' . x1 -> letter-range-15 . x1
+P48: P48 . 'V' . x1 -> letter-range-15 . x1
+P49: P49 . 'W' . x1 -> letter-range-15 . x1
+P5: P5 . 'F' . x1 -> cletter-range-14 . x1
+P50: P50 . 'X' . x1 -> letter-range-15 . x1
+P51: P51 . 'Y' . x1 -> letter-range-15 . x1
+P52: P52 . 'Z' . x1 -> letter-range-15 . x1
+P53: P53 . 'a' . x1 -> letter-range-15 . x1
+P54: P54 . 'b' . x1 -> letter-range-15 . x1
+P55: P55 . 'c' . x1 -> letter-range-15 . x1
+P56: P56 . 'd' . x1 -> letter-range-15 . x1
+P57: P57 . 'e' . x1 -> letter-range-15 . x1
+P58: P58 . 'f' . x1 -> letter-range-15 . x1
+P59: P59 . 'g' . x1 -> letter-range-15 . x1
+P6: P6 . 'G' . x1 -> cletter-range-14 . x1
+P60: P60 . 'h' . x1 -> letter-range-15 . x1
+P61: P61 . 'i' . x1 -> letter-range-15 . x1
+P62: P62 . 'j' . x1 -> letter-range-15 . x1
+P63: P63 . 'k' . x1 -> letter-range-15 . x1
+P64: P64 . 'l' . x1 -> letter-range-15 . x1
+P65: P65 . 'm' . x1 -> letter-range-15 . x1
+P66: P66 . 'n' . x1 -> letter-range-15 . x1
+P67: P67 . 'o' . x1 -> letter-range-15 . x1
+P68: P68 . 'p' . x1 -> letter-range-15 . x1
+P69: P69 . 'q' . x1 -> letter-range-15 . x1
+P7: P7 . 'H' . x1 -> cletter-range-14 . x1
+P70: P70 . 'r' . x1 -> letter-range-15 . x1
+P71: P71 . 's' . x1 -> letter-range-15 . x1
+P72: P72 . 't' . x1 -> letter-range-15 . x1
+P73: P73 . 'u' . x1 -> letter-range-15 . x1
+P74: P74 . 'v' . x1 -> letter-range-15 . x1
+P75: P75 . 'w' . x1 -> letter-range-15 . x1
+P76: P76 . 'x' . x1 -> letter-range-15 . x1
+P77: P77 . 'y' . x1 -> letter-range-15 . x1
+P78: P78 . 'z' . x1 -> letter-range-15 . x1
+P79: P79 . letter-range-15 . x1 -> letter . x1
+P8: P8 . 'I' . x1 -> cletter-range-14 . x1
+P80: P80 . '\n' . x1 -> nl . x1
+P81: P81 . '\n' . x1 -> ws-bar-16 . x1
+P82: P82 . ' ' . x1 -> ws-bar-16 . x1
+P83: P83 . '\t' . x1 -> ws-bar-17 . x1
+P84: P84 . ws-bar-16 . x1 -> ws-bar-17 . x1
+P85: P85 . ws-bar-17 . x1 -> ws . x1
+P86: P86 . x1 -> wss-star-18 . x1
+P87: P87 . ws . wss-star-18 . x1 -> wss-star-18 . x1
+P88: P88 . wss-star-18 . x1 -> wss . x1
+P89: P89 . wss . x1 -> owss-opt-19 . x1
+P9: P9 . 'J' . x1 -> cletter-range-14 . x1
+P90: P90 . x1 -> owss-opt-19 . x1
+P91: P91 . owss-opt-19 . x1 -> owss . x1
+P92: P92 . ',' . x1 -> comma . x1
+P93: P93 . ':' . x1 -> colon . x1
+P94: P94 . ';' . x1 -> semicolon . x1
+P95: P95 . '?' . x1 -> qmark . x1
+P96: P96 . '.' . x1 -> ''
+Paragraph: Paragraph . sentence(x0) . paragraph-star-6(x1) . x2 -> paragraph(Paragraph(x0, x1)) . x2
+Paragraph-0: Paragraph-0 . ' ' . ' ' . x1 -> paragraph-bar-4(Paragraph-0) . x1
+Paragraph-1: Paragraph-1 . nl . x1 -> paragraph-bar-4(Paragraph-1) . x1
+Paragraph-2: Paragraph-2 . ' ' . x1 -> paragraph-bar-5(Paragraph-2) . x1
+Paragraph-3: Paragraph-3 . paragraph-bar-4(x0) . x1 -> paragraph-bar-5(Paragraph-3(x0)) . x1
+Paragraph-4: Paragraph-4 . x1 -> paragraph-star-6(Paragraph-4) . x1
+Paragraph-5: Paragraph-5 . paragraph-bar-5(x0) . sentence(x1) . paragraph-star-6(x2) . x3 -> paragraph-star-6(Paragraph-5(x0, x1, x2)) . x3
+Posinfo: Posinfo . x1 -> posinfo(Posinfo) . x1
+Sentence: Sentence . cword(x0) . sentence-star-11(x1) . sentence-bar-12(x2) . x3 -> sentence(Sentence(x0, x1, x2)) . x3
+Sentence-0: Sentence-0 . colon . x1 -> sentence-bar-7(Sentence-0) . x1
+Sentence-1: Sentence-1 . semicolon . x1 -> sentence-bar-7(Sentence-1) . x1
+Sentence-10: Sentence-10 . qmark . x1 -> sentence-bar-12(Sentence-10) . x1
+Sentence-11: Sentence-11 . '' -> sentence-bar-12(Sentence-11) . x1
+Sentence-2: Sentence-2 . comma . x1 -> sentence-bar-8(Sentence-2) . x1
+Sentence-3: Sentence-3 . sentence-bar-7(x0) . x1 -> sentence-bar-8(Sentence-3(x0)) . x1
+Sentence-4: Sentence-4 . sentence-bar-8(x0) . x1 -> sentence-opt-9(Sentence-4(x0)) . x1
+Sentence-5: Sentence-5 . x1 -> sentence-opt-9(Sentence-5) . x1
+Sentence-6: Sentence-6 . ' ' . x1 -> sentence-bar-10(Sentence-6) . x1
+Sentence-7: Sentence-7 . nl . x1 -> sentence-bar-10(Sentence-7) . x1
+Sentence-8: Sentence-8 . x1 -> sentence-star-11(Sentence-8) . x1
+Sentence-9: Sentence-9 . sentence-opt-9(x0) . sentence-bar-10(x1) . word(x2) . sentence-star-11(x3) . x4 -> sentence-star-11(Sentence-9(x0, x1, x2, x3)) . x4
+Start: Start . text(x0) . start-opt-1(x1) . x2 -> start(Start(x0, x1)) . x2
+Start-0: Start-0 . nl . x1 -> start-opt-1(Start-0) . x1
+Start-1: Start-1 . x1 -> start-opt-1(Start-1) . x1
+Text: Text . paragraph(x0) . text-star-3(x1) . x2 -> text(Text(x0, x1)) . x2
+Text-0: Text-0 . nl . x1 -> text-bar-2(Text-0) . x1
+Text-1: Text-1 . nl . nl . x1 -> text-bar-2(Text-1) . x1
+Text-2: Text-2 . x1 -> text-star-3(Text-2) . x1
+Text-3: Text-3 . text-bar-2(x0) . paragraph(x1) . text-star-3(x2) . x3 -> text-star-3(Text-3(x0, x1, x2)) . x3
+Word: Word . word-plus-13(x0) . x1 -> word(Word(x0)) . x1
+Word-0: Word-0 . letter . x1 -> word-plus-13(Word-0) . x1
+Word-1: Word-1 . letter . word-plus-13(x0) . x1 -> word-plus-13(Word-1(x0)) . x1
+)
+(No reorganizing critical pairs found.)
+(No parsing critical pairs found.)

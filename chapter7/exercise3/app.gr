@@ -1,0 +1,29 @@
+app
+
+Start
+
+start
+
+Syntactic
+
+Term : start -> owss expr owss.
+Var : expr -> var. % "Either a variable"
+App : expr -> expr wss expr. % "an application of one expression to another with whitespaces in between"
+Parens : expr -> op owss expr owss cp. % "paranthesized expression"
+
+Lexical
+
+var -> ['a' - 'z']+.
+ws => '\n' | '\t' | space.
+wss => ws*.
+owss => wss?.
+op => '('.
+cp => ')'.
+
+Vars
+
+x y z
+
+Rules
+
+App(x, App(y, z)) -> App(App(x, y), z) % "application is left-associative"

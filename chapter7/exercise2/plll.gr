@@ -1,0 +1,15 @@
+plll
+
+Start
+
+start
+
+Syntactic
+
+start -> listt '\n'?.
+listt -> list-comma | list-lit.
+list-comma -> '[' space* list-seq space* ']'.
+list-seq -> (space* list-lit space* ',')* space* list-lit.
+list-lit -> '[]'.
+
+Lexical

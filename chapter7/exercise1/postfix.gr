@@ -1,0 +1,15 @@
+postfix
+
+Start
+
+start
+
+Syntactic
+
+Postfix : start -> postfix '\n'?.
+Plus : postfix -> postfix space postfix '+'.
+Num : postfix -> num.
+
+Lexical
+
+num -> ['0' - '9']+.

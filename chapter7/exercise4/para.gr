@@ -1,0 +1,30 @@
+para
+
+Start
+
+start
+
+Syntactic
+
+start -> text nl?.
+Text : text -> paragraph ((nl | nl nl) paragraph)*.
+Paragraph : paragraph -> sentence ((space | space space | nl) sentence)*.
+Sentence : sentence -> cword
+                       ((comma | colon | semicolon)?  (space | nl) word)*
+                       (qmark | dot).
+Word : word -> letter+.
+CWord : cword -> cletter word.
+
+Lexical
+
+cletter => ['A' - 'Z'].
+letter => ['a' - 'z' 'A' - 'Z'].
+nl => '\n'.
+ws => '\t' | '\n' | space.
+wss => ws*.
+owss => wss?.
+comma => ','.
+colon => ':'.
+semicolon => ';'.
+qmark => '?'.
+dot => '.'.
